@@ -1,7 +1,13 @@
-var buttonTimer = document.getElementsByClassName("col-md-12-buttonTimer");
+var correct = 0;
+var incorrect = 0;
+var buttonTimer = document.getElementById("buttonTimer");
 
-console.log(buttonTimer);
 
-buttonTimer.onclick = function() {
-    buttonTimer.innerHTML = "<h2>Timer goes here</h2>";
-}
+
+
+$(".btn-primary").on("click", function() {
+    $(this).innerHTML("<h2>Here's where the Timer Goes</h2>")
+})
+
+
+
