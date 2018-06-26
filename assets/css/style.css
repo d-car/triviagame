@@ -1,0 +1,15 @@
+.container {
+    border: 2px solid white;
+}
+
+.col-md-12-q1, .col-md-12-q2, .col-md-12-q3, .col-md-12-q4, .col-md-12-q5, .col-md-12-q6 {
+    border: 2px solid white;
+}
+
+.col-md-3 {
+    border: 2px solid white;
+}
+
+h2 {
+    text-align: center;
+}
