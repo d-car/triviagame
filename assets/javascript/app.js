@@ -86,7 +86,7 @@ function results() {
     for (i = 0; i < resultsArray.length; i++) {
         $(resultsArray[i]).hide();}
     $(".col-md-12-1").html("<button type='button' class='btn btn-primary' id='reloadButton' onClick='reload()'>Play Again</button>")
-    console.log(gameStatus)
+    // console.log(gameStatus)
 }
 
 // Clears Timer
@@ -109,16 +109,6 @@ function displayBoard() {
     $("#gameArea1").show(gameArea);
 }
 
-// function clearBoard() {
-//     $("#gameArea1").hide();
-// }
-
-// function runLoop() {
-//     clearBoard();
-//     for (i = 0; i < resultsArray.length; i++) {
-//         $(resultsArray[i]).show();} 
-// }
-
 
 // Checks for the values of the selected radio buttons and adds to correct or incorrect counters.  This could have/should have been a loop that would iterate through the radiosArray array and dynamically change the "radios#" values in here.  I couldn't get it to recognize anything but the first radio button value, so I did it this way to make it work.
 function checkRadios() {
@@ -126,7 +116,7 @@ function checkRadios() {
         if (radios1[i].checked) {
             var answer = (radios1[i].value);
             if (answer == 0) {
-                // console.log("correct");
+                console.log("correct");
                 correct++;
             } else {incorrect++}
             break;
@@ -137,7 +127,7 @@ function checkRadios() {
         if (radios2[i].checked) {
             var answer = (radios2[i].value);
             if (answer == 0) {
-                // console.log("correct");
+                console.log("correct");
                 correct++;
             } else {incorrect++}
             break;
@@ -172,12 +162,9 @@ function checkRadios() {
             if (answer == 0) {
                 // console.log("correct");
                 correct++;
-            } else if (answer == 1) {
+            } else {
                 incorrect++}
-            else if (radios5[i].unchecked) {
-                answer == 1; 
-                incorrect++;}
-            break;
+    
             
         }
     }     
