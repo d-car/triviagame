@@ -23,6 +23,26 @@ var correctArray = [];
 
 //=================================================================================================================
 
+// Hides #gameArea until runGame(); is called
+$(document).ready(function() {
+    $("#gameArea1").hide()
+}) 
+
+function reload() {
+    document.location.reload(true);
+    console.log("reload");
+}
+
+$("#submitReset").click(function() {
+    results();
+
+})
+
+$("#reloadButton").click(function() {
+    document.location.reload(true);
+    console.log("reload");
+
+})
 
 // Resets round score and timer
 function reset() {
@@ -58,13 +78,14 @@ function results() {
     stopGame();
     checkAnswers();
     $(".lead").text("Results");
-    timerNumber = 0;
+    timerNumber = 30;
+    $("#gameArea").hide();
     $("#row-1").html("<h2>" + "Correct: " + correct + "</h2>");
     $("#row-3").html("<h2>" + "Incorrect: " + incorrect + "</h2>");
     $("#row-5").html("<h2>" + "Thanks for Playing!");
     for (i = 0; i < resultsArray.length; i++) {
         $(resultsArray[i]).hide();}
-    $("#submitReset").html("<button type='button' class='btn btn-primary' id='submitReset' onClick='runGame()'>Play Again</button>")
+    $(".col-md-12-1").html("<button type='button' class='btn btn-primary' id='reloadButton' onClick='reload()'>Play Again</button>")
     console.log(gameStatus)
 }
 
@@ -85,24 +106,19 @@ function runGame() {
 // DISPLAYS THE QUESTIONS AND ANSWERS
 function displayBoard() {
     $(".lead").text("Good Luck!");
-    $("#gameArea").show(gameArea);
+    $("#gameArea1").show(gameArea);
 }
 
-function clearBoard() {
-    clearBoard.hide();
-}
+// function clearBoard() {
+//     $("#gameArea1").hide();
+// }
 
-function runLoop() {
-    $("#gameArea");
-    clearBoard();
-    for (i = 0; i < resultsArray.length; i++) {
-        $(resultsArray[i]).show();} 
-}
+// function runLoop() {
+//     clearBoard();
+//     for (i = 0; i < resultsArray.length; i++) {
+//         $(resultsArray[i]).show();} 
+// }
 
-// Hides #gameArea until runGame(); is called
-$(document).ready(function() {
-    $("#gameArea").hide();
-})
 
 // Checks for the values of the selected radio buttons and adds to correct or incorrect counters.  This could have/should have been a loop that would iterate through the radiosArray array and dynamically change the "radios#" values in here.  I couldn't get it to recognize anything but the first radio button value, so I did it this way to make it work.
 function checkRadios() {
