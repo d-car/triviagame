@@ -11,17 +11,11 @@ var a4 = document.getElementById("q4");
 var a5 = document.getElementById("q5");
 var a6 = document.getElementById("q6");
 var gameStatus = false;
+guessArray = [];
+questionArray = [$(".col-md-12-q1"), $(".col-md-12-q2"), $(".col-md-12-q3"), $(".col-md-12-q4"), $(".col-md-12-q5")]
 
 //=================================================================================================================
 
-
-// // Hides questions before game starts
-// function hideBoard() {
-//     if (gameStatus = false) {
-//         // $("startGame").hide();
-//         $("#gameArea").text("Get Started!");
-//     }
-// }
 
 // Resets round score and timer
 function reset() {
@@ -32,7 +26,7 @@ function reset() {
 
 }  
 
-// Actually uns the clock down
+// Runs the clock down
 function runClock() {
     clearInterval(timerNumber);
     intervalId = setInterval(countDown, 1000);
@@ -48,6 +42,18 @@ function countDown() {
             alert("Time's Up! Let's See How Ya Did");
             results();
         }
+}
+
+function results() {
+    $("#row-1").html("<h2>" + "Correct: " + correct + "</h2>");
+    $("#row-3").html("<h2>" + "Incorrect: " + incorrect + "</h2>");
+    $("#row-5").html("<h2>" + "Thanks for Playing!");
+    for (i = 0; i < questionArray.length; i++) {
+        $("questionArray[i]").hide();
+    }
+    // $("#row-2").hide();
+    // $("#row-4").hide();
+
 }
 
 // Clears Timer
@@ -77,7 +83,16 @@ $(document).ready(function() {
     $("#gameArea").hide();
 })
 
+function userGuess() {
+    $("input").on("click", function() {
+        var guessCount = $("input:checked").val();
+        console.log(guessCount);
+      });
+}
+
+
 console.log(gameStatus);
+userGuess();
 
 
 
