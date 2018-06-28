@@ -13,6 +13,8 @@ var radios2 = document.getElementsByName('optradio-2');
 var radios3 = document.getElementsByName('optradio-3');
 var radios4 = document.getElementsByName('optradio-4');
 var radios5 = document.getElementsByName('optradio-5');
+var rowArray = [$("#row-1"), $("#row-3"), $("row-5")];
+var clearBoard = rowArray+resultsArray;
 var radiosArray = [radios1, radios2, radios3, radios4, radios5]
 var gameStatus = false;
 var guessArray = [];
@@ -54,7 +56,7 @@ function countDown() {
 function results() {
     gameStatus = false;
     stopGame();
-    checkRadios();
+    checkAnswers();
     $(".lead").text("Results");
     timerNumber = 0;
     $("#row-1").html("<h2>" + "Correct: " + correct + "</h2>");
@@ -80,19 +82,29 @@ function runGame() {
     console.log(gameStatus);
 }
 
-
 // DISPLAYS THE QUESTIONS AND ANSWERS
 function displayBoard() {
     $(".lead").text("Good Luck!");
     $("#gameArea").show(gameArea);
 }
 
+function clearBoard() {
+    clearBoard.hide();
+}
+
+function runLoop() {
+    $("#gameArea");
+    clearBoard();
+    for (i = 0; i < resultsArray.length; i++) {
+        $(resultsArray[i]).show();} 
+}
 
 // Hides #gameArea until runGame(); is called
 $(document).ready(function() {
     $("#gameArea").hide();
 })
 
+// Checks for the values of the selected radio buttons and adds to correct or incorrect counters.  This could have/should have been a loop that would iterate through the radiosArray array and dynamically change the "radios#" values in here.  I couldn't get it to recognize anything but the first radio button value, so I did it this way to make it work.
 function checkRadios() {
     for (var i = 0; i < radios1.length; i++) {
         if (radios1[i].checked) {
@@ -104,11 +116,63 @@ function checkRadios() {
             break;
             
         }
-    }    
+    }
+    for (var i = 0; i < radios2.length; i++) {
+        if (radios2[i].checked) {
+            var answer = (radios2[i].value);
+            if (answer == 0) {
+                // console.log("correct");
+                correct++;
+            } else {incorrect++}
+            break;
+            
+        }
+    } 
+    for (var i = 0; i < radios3.length; i++) {
+        if (radios3[i].checked) {
+            var answer = (radios3[i].value);
+            if (answer == 0) {
+                // console.log("correct");
+                correct++;
+            } else {incorrect++}
+            break;
+            
+        }
+    } 
+    for (var i = 0; i < radios4.length; i++) {
+        if (radios4[i].checked) {
+            var answer = (radios4[i].value);
+            if (answer == 0) {
+                // console.log("correct");
+                correct++;
+            } else {incorrect++}
+            break;
+            
+        }
+    } 
+    for (var i = 0; i < radios5.length; i++) {
+        if (radios5[i].checked) {
+            var answer = (radios5[i].value);
+            if (answer == 0) {
+                // console.log("correct");
+                correct++;
+            } else if (answer == 1) {
+                incorrect++}
+            else if (radios5[i].unchecked) {
+                answer == 1; 
+                incorrect++;}
+            break;
+            
+        }
+    }     
+}
+
+function checkAnswers () {
+    checkRadios();
 }
 
 console.log(gameStatus);
-// userGuess();
+
 
 
 
