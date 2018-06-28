@@ -19,7 +19,7 @@
 
         <div class= "container">
             <div class="row">
-                <div class="col-md-12-buttonTimer">
+                <div class="col-md-12" id= "buttonTimer">
                     <button type="button" class="btn btn-primary" id="startGame" onClick="runGame()">Start Game</button>
                     <h2 id = "timer"></h2>
                 </div>
@@ -177,9 +177,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12-buttonTimer">
-                        <button type="button" id="submit">Submit Answers!</button>
-                            <!-- <h2>Timer goes here</h2> -->
+                    <div class="col-md-12" id="submitReset">
+                        <button type="button" id="submit" onClick="results()">Submit Answers!</button>
                     </div>
                 </div>
             </form>
