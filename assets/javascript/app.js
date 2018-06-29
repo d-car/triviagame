@@ -28,15 +28,11 @@ $(document).ready(function() {
     $("#gameArea1").hide()
 }) 
 
+// refreshes page upon clicking play again button
 function reload() {
     document.location.reload(true);
     console.log("reload");
 }
-
-$("#submitReset").click(function() {
-    results();
-
-})
 
 $("#reloadButton").click(function() {
     document.location.reload(true);
@@ -76,7 +72,7 @@ function countDown() {
 function results() {
     gameStatus = false;
     stopGame();
-    checkAnswers();
+    checkRadios();
     $(".lead").text("Results");
     timerNumber = 30;
     $("#gameArea").hide();
@@ -170,9 +166,6 @@ function checkRadios() {
     }     
 }
 
-function checkAnswers () {
-    checkRadios();
-}
 
 console.log(gameStatus);
 
